@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.Response;
 public class GreetingAsyncImpl implements GreetingAsync {
 	
 	private final static String DATE_TIME_FORMAT = "dd/mm/yyyy hh:mm:ss";
+	private final static int WAIT_TIME = 5000; // 5 seconds
 	
 	@Override
 	public void sayHello(final String name, final AsyncResponse asyncResponse) {
@@ -20,9 +21,9 @@ public class GreetingAsyncImpl implements GreetingAsync {
 		new Thread() {
 			public void run() {
 				try {
-					Thread.sleep(10000); // 10s
+					Thread.sleep(WAIT_TIME);
 					
-					Response response = Response.ok("Hello %s !".formatted(name))
+					Response response = Response.ok(String.format("Hello %s !", name))
 												.type(MediaType.TEXT_PLAIN)
 												.build();
 					

@@ -6,6 +6,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.cxf.jaxrs.client.WebClient;
+
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Response;
@@ -19,23 +21,23 @@ public class AsyncGreetingClient {
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		
 		// Send a service request using a blocking method
-		callServiceWithBlockingPolling();;
+		//callServiceWithBlockingPolling();
 		
 		// Send a service request using a non blocking method
-		callServiceWithNonBlockingPolling();
+		//callServiceWithNonBlockingPolling();
 		
 		// Send a service request using a non blocking method and a callback handler
-		callServiceWithNonBlockingPollingUsingCallback();
+		//callServiceWithNonBlockingPollingUsingCallback();
 		
 		// Send a service request using a blocking synchronous method
 		callServiceWithNoPolling();
 
 	}
 	
-	
 	public static void callServiceWithBlockingPolling() throws InterruptedException, ExecutionException {
 		
 		Client client = ClientBuilder.newClient();
+		
 		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT))
 							+ " - invoking the sayHello async rest operation");
 		
@@ -50,6 +52,9 @@ public class AsyncGreetingClient {
 		//Add a time threshold to the response
 		//Wait maximum 1 second
 		//Response response = futureResponse.get(1L, TimeUnit.SECONDS);
+		
+		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT))
+				+ " - control regained");
 		
 		String serverResult = response.readEntity(String.class);
 		System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern(DATE_TIME_FORMAT))

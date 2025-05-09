@@ -15,7 +15,7 @@ public class MyCallback implements InvocationCallback<Response>{
 		if(response.getStatus() == HttpURLConnection.HTTP_OK) {
 			this.messageFromServer = response.readEntity(String.class);
 		} else {
-			System.err.println("Request error: %s".formatted(response.getStatus()));
+			System.err.println(String.format("Request error: %s", response.getStatus()));
 		}
 		
 	}
