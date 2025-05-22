@@ -24,5 +24,4 @@ public interface GreetingAsync {
    	@Path("/say-hello/{name}")
 	String sayHello(@PathParam("name") final String name);
 	*/
-
 }

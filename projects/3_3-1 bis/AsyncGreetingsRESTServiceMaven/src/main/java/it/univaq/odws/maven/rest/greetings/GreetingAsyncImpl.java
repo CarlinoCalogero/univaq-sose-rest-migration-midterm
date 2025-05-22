@@ -9,7 +9,7 @@ import jakarta.ws.rs.core.Response;
 
 public class GreetingAsyncImpl implements GreetingAsync {
 	
-	private final static String DATE_TIME_FORMAT = "dd/mm/yyyy hh:mm:ss";
+	private final static String DATE_TIME_FORMAT = "dd/MM/yyyy hh:mm:ss";
 	private final static int WAIT_TIME = 5000; // 5 seconds
 	
 	@Override
@@ -38,7 +38,6 @@ public class GreetingAsyncImpl implements GreetingAsync {
 		}.start();
 
 	}
-	
 	/*
 	 @Override
 	public String sayHello(final String name) {
@@ -52,10 +51,7 @@ public class GreetingAsyncImpl implements GreetingAsync {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "Hello %s !".formatted(name);
-
+		return String.format("Hello %s !", name);
 	}
 	*/
-	
-
 }

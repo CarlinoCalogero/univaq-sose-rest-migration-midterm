@@ -14,7 +14,7 @@ import jakarta.ws.rs.core.Response;
 
 public class AsyncGreetingClient {
 	
-	private final static String DATE_TIME_FORMAT = "dd/mm/yyyy hh:mm:ss";
+	private final static String DATE_TIME_FORMAT = "dd/MM/yyyy hh:mm:ss";
 	private final static String WS_SERVICE_URL = "http://localhost:8080/AsyncGreetingsRESTServiceMaven/rest";
 	private final static String RESOURCE = "greetings-rest-service-async/say-hello";
 
